@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.alone.threemeals.mapper.StoreNoticeMapper">
+	<resultMap type="StoreNotice" id="storeNoticeMap">
+		<result property="n_Seq" column="N_SEQ" />
+		<result property="n_Title" column="N_TITLE" />
+		<result property="n_Writer" column="N_WRITER" />
+		<result property="n_RegDate" column="N_REGDATE" />
+		<result property="n_Star" column="N_STAR" />
+		<result property="n_Picture" column="N_PICTURE" />
+		<result property="n_Content" column="N_CONTENT" javaType="java.lang.String" jdbcType="CLOB" />
+		<result property="n_Hit" column="N_HIT" />
+		<result property="n_Grok" column="N_GROK" />
+		<result property="n_NonGrok" column="N_NONGROK" />
+	</resultMap>
+	
+	<resultMap type="StoreNoticeComment" id="storeNoticeCommentMap">
+		<result property="c_Seq" column="C_SEQ" />
+		<result property="n_Seq" column="N_SEQ" />
+		<result property="c_RegDate" column="C_REGDATE" />
+		<result property="c_Writer" column="C_WRITER" />
+		<result property="c_Content" column="C_CONTENT" />
+		<result property="c_Grok" column="C_GROK" />
+	</resultMap>
+
+	<!-- 글쓰기 -->
+	<insert id="insertStoreNotice" parameterType="StoreNotice">
+		INSERT INTO CONVEINENCE_STORE
+		VALUES
+		(
+		(SELECT NVL(MAX(N_SEQ),0)+1 FROM
+		CONVEINENCE_STORE),#{n_Title},#{n_Writer},SYSDATE,#{n_Star},#{n_Picture},#{n_Content},0,0,0
+		)
+	</insert>
+	<!-- 데이터 개수 -->
+	<select id="getCount" parameterType="hashmap" resultType="integer">
+		SELECT COUNT(*) FROM CONVEINENCE_STORE
+		<if test="find == 'n_Writer'">
+			WHERE N_WRITER LIKE '%'||#{qtext}||'%'
+		</if>
+		<if test="find != 'n_Writer'">
+			WHERE N_TITLE LIKE '%'||#{qtext}||'%'
+		</if>
+	</select>
+
+	<!-- 리스트 뽑기 -->
+	<select id="selectAllStore" parameterType="hashmap" resultMap="storeNoticeMap">
+		SELECT * FROM
+		(SELECT ROWNUM N, CONVEINENCE_STORE1.* FROM
+		(SELECT * FROM CONVEINENCE_STORE
+		<if test="find == 'n_Writer'">
+			WHERE N_WRITER LIKE '%'||#{qtext}||'%'
+		</if>
+		<if test="find != 'n_Writer'">
+			WHERE N_TITLE LIKE '%'||#{qtext}||'%'
+		</if>
+		ORDER BY N_SEQ DESC
+		)
+		CONVEINENCE_STORE1
+		)WHERE N >= #{srow} AND #{erow} >= N
+	</select>
+
+	<!-- 글 자세히 보기 -->
+	<select id="selectOneStore" resultMap="storeNoticeMap">
+		SELECT * FROM CONVEINENCE_STORE
+		WHERE N_SEQ = #{n_Seq}
+	</select>
+	
+	<!-- 게시글 수정 -->
+	<update id="updateStore" parameterType="StoreNotice">
+	UPDATE CONVEINENCE_STORE SET
+	N_TITLE = #{n_Title}, N_STAR = #{n_Star}, N_PICTURE=#{n_Picture}, N_CONTENT=#{n_Content}
+	WHERE N_SEQ = #{n_Seq}	
+	</update>
+	
+	<!-- 게시글 삭제 -->
+	<delete id="deleteStore" parameterType="integer">
+	DELETE CONVEINENCE_STORE
+	WHERE N_SEQ = #{n_Seq}
+	</delete>
+		
+	<!-- Hit 수 올리기 -->
+   <update id="updateHit" parameterType="integer">
+   UPDATE CONVEINENCE_STORE SET
+   N_HIT = N_HIT+1
+   WHERE N_SEQ=#{n_Seq}
+   </update>	
+	<!-- Hit 수 내리기 -->
+   <update id="minusHit" parameterType="integer">
+   UPDATE CONVEINENCE_STORE SET
+   N_HIT = N_HIT-1
+   WHERE N_SEQ=#{n_Seq}
+   </update>
+		
+	
+	<!--  --><!--  -->
+	<!-- 댓글 기능 -->
+	<insert id="insertStoreComment" parameterType="StoreNoticeComment">
+		INSERT INTO STORECOMMENT
+		VALUES
+		(
+		(SELECT NVL(MAX(C_SEQ),0)+1 FROM
+		STORECOMMENT),#{n_Seq},SYSDATE,#{c_Writer},#{c_Content},#{c_Grok}
+		)
+	</insert>
+	
+	<update id="updateStoreComment" parameterType="StoreNoticeComment">
+	UPDATE STORECOMMENT SET
+	C_CONTENT = #{c_Content}, C_GROK = #{c_Grok}
+	WHERE C_SEQ = #{c_Seq}	
+	</update>
+	
+	<delete id="deleteCommentByNotice" parameterType="integer">
+	DELETE STORECOMMENT
+	WHERE N_SEQ = #{n_Seq}
+	</delete>
+		
+	<delete id="deleteStoreComment" parameterType="StoreNoticeComment">
+	DELETE FROM STORECOMMENT
+	WHERE C_SEQ = #{c_Seq}	
+	</delete>
+	
+	<!-- 댓글 리스트 뽑기 -->
+	<select id="selectAllStoreComment"  resultMap="storeNoticeCommentMap">
+		SELECT * FROM
+		(SELECT ROWNUM N, STORECOMMENT1.* FROM
+		(SELECT * FROM STORECOMMENT
+		WHERE N_SEQ = #{n_Seq}
+		ORDER BY C_SEQ DESC
+		)
+		STORECOMMENT1
+		)WHERE N >= #{srow} AND #{erow} >= N
+	</select>
+	
+	<!-- 댓글 개수 뽑기 -->
+	<select id="commentGetCount" resultType="integer" >
+		SELECT COUNT(*) FROM STORECOMMENT
+		WHERE N_SEQ = #{n_Seq}
+	</select>
+	
+	<!-- 44 -->
+	<select id="grokCount"  resultType="integer">
+		SELECT COUNT(*) FROM STORECOMMENT
+		WHERE N_SEQ=#{n_Seq} AND C_GROK='yes'
+	</select>
+	
+	<select id="nongrokCount"  resultType="integer">
+		SELECT COUNT(*) FROM STORECOMMENT
+		WHERE N_SEQ=#{n_Seq} AND C_GROK='no'
+	</select>
+	
+		
+</mapper> 

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <typeAliases>
+  	<typeAlias type="com.alone.threemeals.member.vo.Cook" alias="Cook"/>
+  	<typeAlias type="com.alone.threemeals.member.vo.Likecheck" alias="Likecheck"/>
+  	<typeAlias type="com.alone.threemeals.member.vo.MyMember" alias="MyMember"/>
+  	<typeAlias type="com.alone.threemeals.member.vo.Refrigerator" alias="Refrigerator"/>
+  	<typeAlias type="com.alone.threemeals.notice.vo.StoreNotice" alias="StoreNotice"/>
+  	<typeAlias type="com.alone.threemeals.notice.vo.NecessityNotice" alias="NecessityNotice"/>
+  	<typeAlias type="com.alone.threemeals.notice.vo.MyRoomNotice" alias="MyRoomNotice"/>
+  	<typeAlias type="com.alone.threemeals.notice.vo.MyRecipeNotice" alias="MyRecipeNotice"/>
+  	<typeAlias type="com.alone.threemeals.notice.vo.AnabadaNotice" alias="AnabadaNotice"/>
+  	<typeAlias type="com.alone.threemeals.notice.vo.HoneyTipNotice" alias="HoneyTipNotice"/>  	
+  	<typeAlias type="com.alone.threemeals.notice.vo.StoreNoticeComment" alias="StoreNoticeComment"/>
+  	<typeAlias type="com.alone.threemeals.notice.vo.NecessityNoticeComment" alias="NecessityNoticeComment"/>
+  	<typeAlias type="com.alone.threemeals.notice.vo.MyRoomNoticeComment" alias="MyRoomNoticeComment"/>
+  	<typeAlias type="com.alone.threemeals.notice.vo.MyRecipeNoticeComment" alias="MyRecipeNoticeComment"/>
+  	<typeAlias type="com.alone.threemeals.notice.vo.AnabadaNoticeComment" alias="AnabadaNoticeComment"/>
+  	<typeAlias type="com.alone.threemeals.notice.vo.HoneyTipNoticeComment" alias="HoneyTipNoticeComment"/>
+  </typeAliases>
+  
+  <mappers>
+  	<mapper resource="com/alone/threemeals/mapper/MemberMapper.xml"/>
+  	<mapper resource="com/alone/threemeals/mapper/RefrigeratorMapper.xml"/>
+    <mapper resource="com/alone/threemeals/mapper/CookMapper.xml"/>
+    <mapper resource="com/alone/threemeals/mapper/StoreNoticeMapper.xml" />
+    <mapper resource="com/alone/threemeals/mapper/NecessityNoticeMapper.xml" />
+    <mapper resource="com/alone/threemeals/mapper/MyRoomNoticeMapper.xml" />
+    <mapper resource="com/alone/threemeals/mapper/MyRecipeNoticeMapper.xml" />
+    <mapper resource="com/alone/threemeals/mapper/AnabadaNoticeMapper.xml" />
+    <mapper resource="com/alone/threemeals/mapper/HoneyTipNoticeMapper.xml" />
+  </mappers>
+  
+  
+</configuration>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.alone.threemeals.mapper.RefrigeratorMapper">
+  	<resultMap type="Refrigerator" id="refrigeratorMap">
+  		<result property="m_Id" column="M_ID" />
+  		<result property="r_Ingredient" column="R_INGREDIENT" />
+  	</resultMap>
+  	<resultMap type="Cook" id="cookMap">
+       <result property="c_Id" column="C_ID" />
+       <result property="c_Picture" column="C_PICTURE" />
+       <result property="c_Name" column="C_NAME" />
+       <result property="main_Ingredient" column="MAIN_INGREDIENT" />
+       <result property="c_Recipe" column="C_RECIPE" javaType="java.lang.String"  jdbcType="CLOB" />
+    </resultMap>
+  	<insert id="insertRefrigerator" parameterType="Refrigerator">
+  		INSERT INTO REFRIGERATOR
+  		VALUES
+  		(#{m_Id}, #{r_Ingredient})
+  	</insert>
+  	
+  	<select id="selectRefrigerator" parameterType="string" resultMap="refrigeratorMap">
+  		SELECT * FROM REFRIGERATOR
+  		WHERE M_ID = #{m_Id}
+  	</select>
+  	
+  	<select id="searchRefrigerator" parameterType="string" resultMap="cookMap">
+  		SELECT * FROM COOK
+  		WHERE MAIN_INGREDIENT = #{main_Ingredient}
+  	</select>
+  	
+  	<select id="getCount" parameterType="string" resultType="integer">
+  		SELECT COUNT(*) FROM COOK
+  		WHERE MAIN_INGREDIENT = #{main_Ingredient} 
+  	</select>
+  	<delete id="deleteRefrigerator">
+  		DELETE FROM REFRIGERATOR
+  		WHERE M_ID=#{m_Id}
+  	</delete>
+  	
+  	
+  </mapper>
+  

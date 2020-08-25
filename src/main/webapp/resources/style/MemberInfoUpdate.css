@@ -1,0 +1,479 @@
+@CHARSET "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	outline: none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0 auto;
+	overflow: auto;
+	background-image: url('../images/background.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-attachment: fixed;
+}
+
+#header #content #footer {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+}
+
+div#header {
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+	height: 80px;
+}
+
+#menu ul, #menu li, #menu span, #menu a {
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+#menu {
+	line-height: 1;
+	border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	background: #ffffff;
+	background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff),
+		color-stop(100%, #ffffff));
+	background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+	background: -o-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+	background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+	background: linear-gradient(to bottom, #ffffff 0%, #ffffff 100%);
+	border-bottom: 2px solid #db000b;
+	width: auto;
+}
+
+#menu:after, #menu ul:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+#menu a {
+	background: #ffffff;
+	background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff),
+		color-stop(100%, #ffffff));
+	background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+	background: -o-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+	background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+	background: linear-gradient(to bottom, #ffffff 0%, #ffffff 100%);
+	color: #ffffff;
+	display: block;
+	font-family: Helvetica, Arial, Verdana, sans-serif;
+	padding: 19px 20px;
+	text-decoration: none;
+}
+
+#menu ul {
+	list-style: none;
+}
+
+#menu>ul>li {
+	display: inline-block;
+	float: left;
+	margin: 0;
+}
+
+#menu.align-center {
+	text-align: center;
+}
+
+#menu.align-center>ul>li {
+	float: none;
+}
+
+#menu.align-center ul ul {
+	text-align: left;
+}
+
+#menu.align-right>ul {
+	float: right;
+}
+
+#menu.align-right ul ul {
+	text-align: right;
+}
+
+#menu>ul>li>a {
+	color: #000000;
+	font-size: 12px;
+}
+
+#menu>ul>li:hover:after {
+	content: '';
+	display: block;
+	width: 0;
+	height: 0;
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #db000b;
+	margin-left: -10px;
+}
+
+#menu>ul>li:first-child>a {
+	border-radius: 5px 0 0 0;
+	-moz-border-radius: 5px 0 0 0;
+	-webkit-border-radius: 5px 0 0 0;
+}
+
+#menu.align-right>ul>li:first-child>a, #menu.align-center>ul>li:first-child>a
+	{
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+}
+
+#menu.align-right>ul>li:last-child>a {
+	border-radius: 0 5px 0 0;
+	-moz-border-radius: 0 5px 0 0;
+	-webkit-border-radius: 0 5px 0 0;
+}
+
+#menu .sub {
+	z-index: 1;
+}
+
+#menu .sub:hover>ul {
+	display: block;
+}
+
+#menu .sub ul {
+	display: none;
+	position: absolute;
+	width: 150px;
+	top: 100%;
+	left: 0;
+}
+
+#menu.align-right .sub ul {
+	left: auto;
+	right: 0;
+}
+
+#menu .sub ul li {
+	*margin-bottom: -1px;
+}
+
+#menu .sub ul li a {
+	background: #db000b;
+	border-bottom: 1px dotted #ff0f1b;
+	font-size: 11px;
+	filter: none;
+	display: block;
+	line-height: 120%;
+	padding: 10px;
+}
+
+#menu .sub ul li:hover a {
+	background: #a80008;
+}
+
+#menu ul ul li:hover>a {
+	color: #ffffff;
+}
+
+#menu .sub .sub:hover>ul {
+	display: block;
+}
+
+#menu .sub .sub ul {
+	display: none;
+	position: absolute;
+	left: 100%;
+	top: 0;
+}
+
+#menu.align-right .sub .sub ul, #menu.align-right ul ul ul {
+	left: auto;
+	right: 100%;
+}
+
+#menu .sub .sub ul li a {
+	background: #a80008;
+	border-bottom: 1px dotted #ff0f1b;
+}
+
+#menu .sub .sub ul li a:hover {
+	background: #8f0007;
+}
+
+#menu ul ul li.last>a, #menu ul ul li:last-child>a, #menu ul ul ul li.last>a,
+	#menu ul ul ul li:last-child>a, #menu .sub ul li:last-child>a, #menu .sub ul li.last>a
+	{
+	border-bottom: 0;
+}
+
+#menu #login_box {
+	float: right;
+}
+
+#menu #login_box:HOVER:AFTER {
+	content: '';
+	display: block;
+	width: 0;
+	height: 0;
+	position: absolute;
+	right: 50%;
+	bottom: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #db000b;
+	margin-left: -10px;
+}
+
+#menu .sub:hover {
+	display: block;
+}
+
+#menu #login_box ul {
+	width: 0;
+}
+
+#menu #login_box ul>li.sub {
+	position: absolute;
+	width: 200px;
+	top: 100%;
+	left: -130px;
+}
+
+#menu #login_box:HOVER:AFTER {
+	content: '';
+	display: block;
+	width: 0;
+	height: 0;
+	position: absolute;
+	right: 50%;
+	bottom: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #db000b;
+	margin-left: -10px;
+}
+
+#menu .sub:hover {
+	display: block;
+}
+
+#menu #login_box ul {
+	width: 0;
+}
+
+#menu #login_box ul>li.sub {
+	position: absolute;
+	width: 200px;
+	top: 100%;
+	left: -130px;
+}
+
+div#login {
+	height: 30px;
+	text-align: center;
+	margin-top: 15px;
+	font-family: MD개성체;
+}
+
+div.input_box>input {
+	width: 196px;
+	height: 30px;
+}
+
+div.login_btn input {
+	border: none;
+	font-family: MD개성체;
+	font-size: 12pt;
+	color: white;
+	background-color: rgba(237, 28, 36, 0.6);
+	width: 200px;
+	height: 30px;
+}
+
+#content {
+	height: 750px;
+}
+
+div#wrapper_2 {
+	font-family: MD이솝체;
+	width: 100%;
+	margin: 0 auto;
+	padding: 1px;
+	text-align: center;
+}
+
+h1 {
+	position: absolute;
+	margin-top: 350px;
+	margin-left: 190px;
+	color: black;
+	font-size: 30pt;
+}
+
+#place1 {
+	position: static;
+	padding-left: 56px;
+	padding-top: 101px;
+}
+
+div#join {
+	position: absolute;
+	margin: 10px;
+	padding: 5px 5px 5px 5px;
+	width: 330px;
+	margin-left: 670px;
+	margin-top: -500px;
+	background-color: rgba(255, 255, 255, 0.4);
+}
+
+div#join ul>li {
+	display: inline-block;
+}
+
+div#join1>ul>li>input {
+	border: 1px outset #AC3030;
+	margin-top: 10px;
+	margin-left: 30px;
+	width: 265px;
+	height: 30px;
+}
+
+/* 추가 */
+div#join1>ul>li>input#m_Id {
+	border: 1px outset #AC3030;
+	margin-top: 10px;
+	margin-left: 30px;
+	width: 265px;
+	height: 30px;
+}
+
+div#join1>ul>li>input#id_Check {
+	border: 1px outset #AC3030;
+	margin: 0 auto;
+	width: 80px;
+	height: 34px;
+}
+
+.result {
+	margin: 0 auto;
+	padding: 0 auto;
+	margin-left: 30px;
+}
+
+div#join2>ul>li>input {
+	border: 1px outset #AC3030;
+	margin-top: 10px;
+	margin-left: 30px;
+	width: 265px;
+	height: 30px;
+}
+
+#join3 {
+	margin-top: 10px;
+	margin-left: 30px;
+	background-color: #EFEFEF;
+	border-radius: 4px;
+	border: 1px solid #D0D0D0;
+	overflow: auto;
+	float: left;
+	width: 265px;
+}
+
+#join3 label {
+	float: left;
+	width: 8.2em;
+}
+
+#join3 label span {
+	text-align: center;
+	padding: 3px 0px;
+	display: block;
+}
+
+#join3 label input {
+	position: relative;
+	top: -20px;
+	display: none;
+}
+
+#join3 input:checked+span {
+	background-color: #911;
+	color: #fff;
+}
+
+div#join4>ul>li>input {
+	border: 1px outset #AC3030;
+	margin: 0 auto;
+	width: 265px;
+	height: 30px;
+	margin-top: 20px;
+	margin-left: 30px;
+}
+
+div#join4>ul>li>#m_BirthYear {
+	margin-left: 30px;
+	width: 60px;
+}
+
+div#join4>ul>li>#m_BirthMonth {
+	margin-left: 5px;
+	width: 60px;
+}
+
+div#join4>ul>li>#m_BirthDay {
+	margin-left: 5px;
+	width: 60px;
+}
+
+div#join5>ul>li>select {
+	width: 265px;
+	height: 30px;
+	margin-left: 30px;
+	margin-top: 10px;
+}
+
+div#join6>ul>li>input {
+	border: 1px outset #AC3030;
+	margin-top: 10px;
+	margin-left: 30px;
+	width: 265px;
+	height: 30px;
+}
+
+p>input {
+	border: 1px dotted #AC3030;
+	font-family: MD개성체;
+	font-size: 12pt;
+	color: white;
+	background-color: #AC3030;
+	width: 265px;
+	height: 30px;
+	margin-top: 10px;
+	margin-left: 30px;
+	margin-bottom: 10px;
+}
+
+div#footer {
+	width: 100%;
+	height: 20px;
+	margin: 0 auto;
+	text-align: center;
+	font-family: MD이솝체;
+	margin-top: 45px;
+}

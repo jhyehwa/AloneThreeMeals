@@ -1,0 +1,946 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+body {
+	margin: 0 auto;
+	overflow: auto;
+	background-image: url('../images/background.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-attachment: fixed;
+}
+
+#wrapper #header .vegetable .meat .fisheries .noodle .other {
+	position: absolute;
+}
+
+div#header {
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+	height: 80px;
+}
+
+#menu ul, #menu li, #menu span, #menu a {
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+#menu {
+	line-height: 1;
+	border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	background: #ffffff;
+	background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff),
+		color-stop(100%, #ffffff));
+	background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+	background: -o-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+	background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+	background: linear-gradient(to bottom, #ffffff 0%, #ffffff 100%);
+	border-bottom: 2px solid #db000b;
+	width: auto;
+}
+
+#menu:after, #menu ul:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+#menu a {
+	background: #ffffff;
+	background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff),
+		color-stop(100%, #ffffff));
+	background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+	background: -o-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+	background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+	background: linear-gradient(to bottom, #ffffff 0%, #ffffff 100%);
+	color: #ffffff;
+	display: block;
+	font-family: Helvetica, Arial, Verdana, sans-serif;
+	padding: 19px 20px;
+	text-decoration: none;
+}
+
+#menu ul {
+	list-style: none;
+}
+
+#menu>ul>li {
+	display: inline-block;
+	float: left;
+	margin: 0;
+}
+
+#menu.align-center {
+	text-align: center;
+}
+
+#menu.align-center>ul>li {
+	float: none;
+}
+
+#menu.align-center ul ul {
+	text-align: left;
+}
+
+#menu.align-right>ul {
+	float: right;
+}
+
+#menu.align-right ul ul {
+	text-align: right;
+}
+
+#menu>ul>li>a {
+	color: #000000;
+	font-size: 12px;
+}
+
+#menu>ul>li:hover:after {
+	content: '';
+	display: block;
+	width: 0;
+	height: 0;
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #db000b;
+	margin-left: -10px;
+}
+
+#menu>ul>li:first-child>a {
+	border-radius: 5px 0 0 0;
+	-moz-border-radius: 5px 0 0 0;
+	-webkit-border-radius: 5px 0 0 0;
+}
+
+#menu.align-right>ul>li:first-child>a, #menu.align-center>ul>li:first-child>a
+	{
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+}
+
+#menu.align-right>ul>li:last-child>a {
+	border-radius: 0 5px 0 0;
+	-moz-border-radius: 0 5px 0 0;
+	-webkit-border-radius: 0 5px 0 0;
+}
+
+#menu>ul>li.active>a, #menu>ul>li:hover>a {
+	color: #000000;
+	box-shadow: inset 0 0 3px #d9d9d9;
+	-moz-box-shadow: inset 0 0 3px #d9d9d9;
+	-webkit-box-shadow: inset 0 0 3px #d9d9d9;
+	background: #f2f2f2;
+	background: -moz-linear-gradient(top, #ffffff 0%, #f2f2f2 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff),
+		color-stop(100%, #f2f2f2));
+	background: -webkit-linear-gradient(top, #ffffff 0%, #f2f2f2 100%);
+	background: -o-linear-gradient(top, #ffffff 0%, #f2f2f2 100%);
+	background: -ms-linear-gradient(top, #ffffff 0%, #f2f2f2 100%);
+	background: linear-gradient(to bottom, #ffffff 0%, #f2f2f2 100%);
+}
+
+#menu .sub {
+	z-index: 1;
+}
+
+#menu .sub:hover>ul {
+	display: block;
+}
+
+#menu .sub ul {
+	display: none;
+	position: absolute;
+	width: 200px;
+	top: 100%;
+	left: 0;
+}
+
+#menu.align-right .sub ul {
+	left: auto;
+	right: 0;
+}
+
+#menu .sub ul li {
+	*margin-bottom: -1px;
+}
+
+#menu .sub ul li a {
+	background: #db000b;
+	border-bottom: 1px dotted #ff0f1b;
+	font-size: 11px;
+	filter: none;
+	display: block;
+	line-height: 120%;
+	padding: 10px;
+	color: #ffffff;
+}
+
+#menu .sub ul li:hover a {
+	background: #a80008;
+}
+
+#menu ul ul li:hover>a {
+	color: #ffffff;
+}
+
+#menu .sub .sub:hover>ul {
+	display: block;
+}
+
+#menu .sub .sub ul {
+	display: none;
+	position: absolute;
+	left: 100%;
+	top: 0;
+}
+
+#menu.align-right .sub .sub ul, #menu.align-right ul ul ul {
+	left: auto;
+	right: 100%;
+}
+
+#menu .sub .sub ul li a {
+	background: #a80008;
+	border-bottom: 1px dotted #ff0f1b;
+}
+
+#menu .sub .sub ul li a:hover {
+	background: #8f0007;
+}
+
+#menu ul ul li.last>a, #menu ul ul li:last-child>a, #menu ul ul ul li.last>a,
+	#menu ul ul ul li:last-child>a, #menu .sub ul li:last-child>a, #menu .sub ul li.last>a
+	{
+	border-bottom: 0;
+}
+
+#menu #login_box {
+	float: right;
+}
+
+#menu #login_box:HOVER:AFTER {
+	content: '';
+	display: block;
+	width: 0;
+	height: 0;
+	position: absolute;
+	right: 50%;
+	bottom: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #db000b;
+	margin-left: -10px;
+}
+
+#menu .sub:hover {
+	display: block;
+}
+
+#menu #login_box ul {
+	width: 0;
+}
+
+#menu #login_box ul>li.sub {
+	position: absolute;
+	width: 200px;
+	top: 100%;
+	left: -130px;
+}
+
+div#login {
+	height: 30px;
+	text-align: center;
+	margin-top: 15px;
+	font-family: MD개성체;
+}
+
+div.input_box>input {
+	width: 196px;
+	height: 30px;
+}
+
+div.login_btn input {
+	border: none;
+	font-family: MD개성체;
+	font-size: 12pt;
+	color: white;
+	background-color: rgba(237, 28, 36, 0.6);
+	width: 200px;
+	height: 30px;
+}
+
+h1 {
+	font-size: 30px;
+	margin: 5px;
+	padding: 5px;
+}
+
+div.vegetable {
+	width: 350px;
+	margin-left: 50px;
+	margin-top: -50px;
+}
+
+div.vegetable>p.vegetable {
+	background-color: rgba(255, 194, 133, 0.6);
+	width: 200px;
+	height: 30px;
+	text-align: center;
+	margin-left: 65px;
+	margin-top: 50px;
+}
+
+ul.vegetable>li.감자 {
+	border: 2px solid red;
+	list-style-type: none;
+	width: 100px;
+	height: 120px;
+	margin-top: 10px;
+}
+
+#potato {
+	margin-left: 40px;
+}
+
+ul.vegetable>li.고추 {
+	border: 2px solid red;
+	list-style-type: none;
+	margin-top: -125px;
+	margin-left: 110px;
+	width: 100px;
+	height: 120px;
+}
+
+#pepper {
+	margin-top: 0px;
+	margin-left: 40px;
+	position: relative;
+}
+
+ul.vegetable>li.냉이 {
+	border: 2px solid red;
+	list-style-type: none;
+	margin-top: -125px;
+	margin-left: 220px;
+	width: 100px;
+	height: 120px;
+}
+
+ul.vegetable>li.시금치 {
+	border: 2px solid red;
+	list-style-type: none;
+	width: 100px;
+	height: 120px;
+	margin-top: 10px;
+}
+
+#spinach {
+	margin-left: -50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+p.냉이 {
+	margin-top: 100px;
+	margin-left: 25px;
+	margin-top: 20px;
+}
+
+#wasabi {
+	margin-left: 45px;
+}
+
+p.시금치 {
+	margin-top: 100px;
+	margin-left: 25px;
+	margin-top: 20px;
+}
+
+#spinach {
+	margin-left: 45px;
+}
+
+p.고구마 {
+	margin-top: 20px;
+	margin-left: 130px;
+	margin-top: -110px;
+}
+
+#sweet {
+	margin-left: 145px;
+}
+
+p.마늘 {
+	margin-top: 20px;
+	margin-left: 130px;
+	margin-top: -240px;
+}
+
+#garlic {
+	margin-left: 145px;
+}
+
+p.양파 {
+	margin-top: 100px;
+	margin-left: 25px;
+	margin-top: 140px;
+}
+
+#onion {
+	margin-left: 45px;
+}
+
+p.쪽파 {
+	margin-top: 20px;
+	margin-left: 130px;
+	margin-top: -110px;
+}
+
+#shallots {
+	margin-left: 145px;
+}
+
+p.부추 {
+	margin-top: 100px;
+	margin-left: 25px;
+	margin-top: 20px;
+}
+
+#chives {
+	margin-left: 45px;
+}
+
+p.연근 {
+	margin-top: 20px;
+	margin-left: 235px;
+	margin-top: -240px;
+}
+
+#lotus {
+	margin-left: 245px;
+}
+
+p.콩나물 {
+	margin-left: 235px;
+	margin-top: -290px;
+}
+
+#bean {
+	margin-left: 245px;
+}
+
+p.양배추 {
+	margin-top: 20px;
+	margin-left: 235px;
+	margin-top: -235px;
+}
+
+#cabbage {
+	margin-left: 240px;
+}
+
+p.브로콜리 {
+	margin-top: 20px;
+	margin-left: 235px;
+	margin-top: -240px;
+}
+
+#broccoli {
+	margin-left: 240px;
+}
+
+div.meat {
+	width: 350px;
+	height: 700px;
+	margin-left: 60px;
+	margin-top: -700px;
+}
+
+div.meat>p.meat {
+	background-color: rgba(255, 194, 133, 0.6);
+	width: 180px;
+	height: 30px;
+	text-align: center;
+	margin-left: 380px;
+	margin-top: -700px;
+	padding: 5px;
+}
+
+ul.쇠고기 {
+	margin-top: 20px;
+	margin-left: 350px;
+	width: 90px;
+	list-style-type: none;
+	position: absolute;
+}
+
+ul.check1 {
+	list-style-type: none;
+	margin-left: 450px;
+	width: 400px;
+}
+
+#bulgogi {
+	margin-top: 40px;
+}
+
+#soegalbi {
+	margin-left: 0px;
+}
+
+#jangjorim {
+	margin-left: 0px;
+}
+
+ul.돼지고기 {
+	margin-top: 50px;
+	margin-left: 350px;
+	width: 90px;
+	list-style-type: none;
+	position: absolute;
+}
+
+ul.check2 {
+	list-style-type: none;
+	margin-left: 300px;
+	width: 400px;
+}
+
+#pig1 {
+	margin-top: 55px;
+	margin-left: 150px;
+}
+
+#pig2 {
+	margin-left: 150px;
+}
+
+#pig3 {
+	margin-left: 150px;
+}
+
+#pig4 {
+	margin-left: 150px;
+}
+
+#pig5 {
+	margin-left: 150px;
+}
+
+#pig6 {
+	margin-left: 150px;
+}
+
+#pig7 {
+	margin-left: 150px;
+}
+
+#pig8 {
+	margin-left: 150px;
+}
+
+ul.닭고기 {
+	margin-top: 20px;
+	margin-left: 350px;
+	width: 90px;
+	list-style-type: none;
+	position: absolute;
+}
+
+ul.check3 {
+	list-style-type: none;
+	margin-left: 400px;
+	width: 400px;
+}
+
+#chicken1 {
+	margin-top: 35px;
+	margin-left: 50px;
+}
+
+#chicken2 {
+	margin-left: 50px;
+}
+
+#chicken3 {
+	margin-left: 50px;
+}
+
+ul.돈까스 {
+	margin-top: 50px;
+	margin-left: 350px;
+	width: 90px;
+	list-style-type: none;
+	position: absolute;
+}
+
+ul.check4 {
+	list-style-type: none;
+	margin-left: 400px;
+	width: 400px;
+}
+
+#tonkatsu {
+	margin-top: 85px;
+	margin-left: 50px;
+}
+
+div.mushroom {
+	background-color: rgba(255, 194, 133, 0.6);
+	width: 120px;
+	height: 30px;
+	text-align: center;
+	margin-left: 725px;
+	margin-top: -700px;
+	padding: 5px;
+}
+
+ul.버섯 {
+	position: absolute;
+	margin-top: 40px;
+	margin-left: -50px;
+	list-style-type: none;
+}
+
+ul.check5 {
+	list-style-type: none;
+	margin-left: 40px;
+	width: 150px;
+}
+
+#mushroom1 {
+	margin-top: 40px;
+}
+
+#mushroom3 {
+	margin-left: -15px;
+}
+
+#mushroom4 {
+	margin-left: -15px;
+}
+
+p.fisheries {
+	background-color: rgba(255, 194, 133, 0.6);
+	width: 120px;
+	height: 30px;
+	text-align: center;
+	margin-left: 720px;
+	margin-top: 150px;
+	padding: 5px;
+}
+
+p.홍합 {
+	margin-left: 685px;
+	margin-top: 20px;
+}
+
+#mussel {
+	margin-left: 700px;
+}
+
+p.조개 {
+	margin-left: 685px;
+	margin-top: 20px;
+}
+
+#clam {
+	margin-left: 700px;
+}
+
+p.오징어 {
+	margin-left: 800px;
+	margin-top: -240px;
+}
+
+#squid {
+	margin-left: 810px;
+}
+
+p.쭈꾸미 {
+	margin-left: 800px;
+	margin-top: 20px;
+}
+
+#jjukkumi {
+	margin-left: 810px;
+}
+
+p.새우 {
+	margin-left: 685px;
+	margin-top: 20px;
+}
+
+#geonsaewoo {
+	margin-left: 700px;
+}
+
+div.noodle {
+	background-color: rgba(255, 194, 133, 0.6);
+	width: 150px;
+	height: 30px;
+	text-align: center;
+	margin-left: 980px;
+	margin-top: -625px;
+	padding: 5px;
+}
+
+ul.면류 {
+	margin-left: -50px;
+	margin-top: 40px;
+	width: 90px;
+	list-style-type: none;
+	position: absolute;
+}
+
+ul.check6 {
+	list-style-type: none;
+	margin-top: 40px;
+	width: 200px;
+}
+
+#noodle1 {
+	margin-left: -42px;
+}
+
+#noodle2 {
+	margin-left: 7px;
+}
+
+#noodle3 {
+	margin-left: -25px;
+}
+
+#noodle4 {
+	margin-left: -40px;
+}
+
+#noodle5 {
+	margin-left: -40px;
+}
+
+#noodle6 {
+	margin-left: -40px;
+}
+
+#noodle7 {
+	margin-left: -25px;
+}
+
+div.other {
+	width: 450px;
+	height: 700px;
+	margin-left: 1200px;
+	margin-top: -30px;
+}
+
+div.other>p.other {
+	background-color: rgba(255, 194, 133, 0.6);
+	width: 150px;
+	height: 30px;
+	margin-top: -40px;
+	margin-left: 100px;
+	padding: 5px;
+	text-align: center;
+}
+
+p.된장 {
+	margin-left: -20px;
+	margin-top: 20px;
+}
+
+#other1 {
+	margin-left: -10px;
+}
+
+p.만두 {
+	margin-left: 80px;
+	margin-top: -110px;
+}
+
+#other2 {
+	margin-left: 100px;
+}
+
+p.카레 {
+	margin-left: 180px;
+	margin-top: -110px;
+}
+
+#other3 {
+	margin-left: 190px;
+}
+
+p.북어포 {
+	margin-left: 280px;
+	margin-top: -110px;
+}
+
+#other4 {
+	margin-left: 285px;
+}
+
+p.사골곰탕 {
+	margin-left: -20px;
+	margin-top: 20px;
+}
+
+#other5 {
+	margin-left: -10px;
+}
+
+p.김치 {
+	margin-left: 80px;
+	margin-top: -110px;
+}
+
+#other6 {
+	margin-left: 100px;
+}
+
+p.가래떡 {
+	margin-left: 180px;
+	margin-top: -110px;
+}
+
+#other7 {
+	margin-left: 190px;
+}
+
+p.견과류 {
+	margin-left: 280px;
+	margin-top: -110px;
+}
+
+#other8 {
+	margin-left: 285px;
+}
+
+p.만두피 {
+	margin-left: -20px;
+	margin-top: 20px;
+}
+
+#other9 {
+	margin-left: -10px;
+}
+
+p.달걀 {
+	margin-left: 80px;
+	margin-top: -110px;
+}
+
+#other10 {
+	margin-left: 100px;
+}
+
+p.김 {
+	margin-left: 180px;
+	margin-top: -110px;
+}
+
+#other11 {
+	margin-left: 190px;
+}
+
+p.떡볶이떡 {
+	margin-left: 280px;
+	margin-top: -110px;
+}
+
+#other12 {
+	margin-left: 285px;
+}
+
+p.비엔나 {
+	margin-left: -20px;
+	margin-top: 20px;
+}
+
+#other13 {
+	margin-left: -10px;
+}
+
+ul.빵 {
+	margin-left: 80px;
+	margin-top: -110px;
+	list-style-type: none;
+}
+
+#other14 #other15 {
+	margin-left: 100px;
+}
+
+ul.치즈 {
+	margin-left: 180px;
+	margin-top: -135px;
+	list-style-type: none;
+}
+
+#other16 #other17 #other18 {
+	margin-left: 190px;
+}
+
+ul.통조림 {
+	margin-left: 300px;
+	margin-top: -160px;
+	list-style-type: none;
+}
+
+#other19 #other20 #other21 {
+	margin-left: 285px;
+}
+
+#add {
+	border: 1px dotted #AC3030;
+	font-family: MD개성체;
+	font-size: 12pt;
+	color: white;
+	background-color: #AC3030;
+	width: 265px;
+	height: 30px;
+	margin-top: -30px;
+	margin-left: 710px;
+	margin-bottom: 10px;
+}
+
+div#footer {
+   width: 100%;
+   height: 20px;
+   margin: 0 auto;
+   text-align: center;
+   font-family: MD이솝체;
+   margin-top: 20px;
+}

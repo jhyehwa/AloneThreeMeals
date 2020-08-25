@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.alone.threemeals.mapper.MemberMapper">
+ 	<resultMap type="MyMember" id="myMemberMap">
+ 		<result property="m_Id" column="M_ID" />
+ 		<result property="m_Pwd" column="M_PWD" />
+ 		<result property="m_Name" column="M_NAME" />
+ 		<result property="m_Birth" column="M_BIRTH" />
+ 		<result property="m_Phone" column="M_PHONE" />
+ 		<result property="pwd_Question" column="PWD_QUESTION" />
+ 		<result property="pwd_Answer" column="PWD_ANSWER" />
+ 		<result property="m_Gender" column="M_GENDER" />
+ 		<result property="email" column="EMAIL" />
+ 	</resultMap>
+ 	
+ 	<insert id="insertMember" parameterType="MyMember">
+ 		INSERT INTO MYMEMBER
+ 		VALUES
+ 		(
+ 		#{m_Id},#{m_Pwd},#{m_Name},#{m_Birth},#{m_Phone},#{pwd_Question},#{pwd_Answer},#{m_Gender},#{email}
+ 		)
+ 	</insert>
+	
+	<select id="selectMember" parameterType="String" resultMap="myMemberMap">
+		SELECT * FROM MYMEMBER
+		WHERE M_ID=#{M_ID}
+	</select>
+	
+	<delete id="deleteMember" parameterType="String">
+		DELETE FROM MYMEMBER
+		WHERE M_ID=#{m_Id}
+	</delete>
+	
+	<select id="idSearch" parameterType="String" resultMap="myMemberMap">
+		SELECT * FROM MYMEMBER
+		WHERE M_NAME=#{m_Name} AND M_BIRTH=#{m_Birth} AND M_PHONE = #{m_Phone}
+	</select>
+	
+	<update id="updateMember" parameterType="String">
+      UPDATE MYMEMBER SET 
+      M_PWD = #{m_Pwd}, M_PHONE=#{m_Phone}, PWD_QUESTION=#{pwd_Question}, PWD_ANSWER=#{pwd_Answer}, EMAIL=#{email}
+      WHERE M_ID = #{m_Id}
+   </update>
+ </mapper> 

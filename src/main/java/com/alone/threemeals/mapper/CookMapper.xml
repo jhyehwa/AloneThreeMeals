@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.alone.threemeals.mapper.CookMapper">
+    <resultMap type="Cook" id="cookMap">
+       <result property="c_Id" column="C_ID" />
+       <result property="c_Picture" column="C_PICTURE" />
+       <result property="c_Name" column="C_NAME" />
+       <result property="main_Ingredient" column="MAIN_INGREDIENT" />
+       <result property="c_Recipe" column="C_RECIPE" javaType="java.lang.String"  jdbcType="CLOB" />
+    </resultMap>
+    
+    <resultMap type="Likecheck" id="likeMap">
+       <result property="m_Id" column="M_ID" />
+       <result property="c_Id" column="C_ID" />
+       <result property="l_Ck" column="L_CK" />
+    </resultMap>
+    
+    
+    <!-- 레시피 등록 -->
+    <insert id="insertCook" parameterType="Cook">
+       INSERT INTO COOK
+       VALUES
+       (
+          (SELECT NVL(MAX(C_ID),0)+1 FROM COOK),#{c_Picture},#{c_Name},#{main_Ingredient},#{c_Recipe},0
+       )
+    </insert>
+    
+    <!-- 전체 요리 수 -->
+    <select id="getCount" resultType="integer">
+      SELECT COUNT(*) FROM COOK
+   </select>
+    
+    <!-- 레시피 리스트 -->
+    <select id="selectAllCook" parameterType="hashmap" resultMap="cookMap">
+       SELECT * FROM
+      (SELECT ROWNUM N, COOK1.* FROM
+      (SELECT * FROM COOK
+      <if test="find == 'c_Name'">
+         WHERE C_NAME LIKE '%'||#{qtext}||'%'
+      </if>
+      <if test="find != 'c_Name'">
+         WHERE MAIN_INGREDIENT LIKE '%'||#{qtext}||'%'
+      </if>
+      ORDER BY C_ID DESC
+      )
+      COOK1
+      )WHERE N >= #{srow} AND #{erow} >= N
+    </select>
+    
+    <select id="selectCookList" resultMap="cookMap">
+    SELECT * FROM COOK ORDER BY C_ID DESC
+    </select>
+    
+    
+    <!-- 레시피 검색  -->
+    <select id="selectOneCook" resultMap="cookMap">
+       SELECT * FROM COOK
+       WHERE C_ID = #{c_Id}       
+    </select>
+    
+    <!-- 추천여부 등록 -->
+    <insert id="insertLikeCheck" parameterType="Likecheck">
+       INSERT INTO LIKECHECK
+       VALUES
+       (
+          #{m_Id}, #{c_Id}, 'yes'
+       )
+    </insert>
+       
+    <!-- 추천여부 확인  -->
+    <select id="selectOneLikeCheck" parameterType="hashmap" resultMap="likeMap">
+       SELECT * FROM LIKECHECK
+       WHERE M_ID = #{m_Id} AND C_ID = #{c_Id}
+    </select>
+        
+    <!-- 추천 업데이트  -->
+    <update id="updateLikecheck" parameterType="Likecheck">
+       UPDATE LIKECHECK SET
+       <if test="l_Ck == 'yes'">
+          L_CK = 'no'
+       </if>
+       <if test="l_Ck == 'no'">
+          L_CK = 'yes'
+       </if>
+       WHERE M_ID = #{m_Id} AND C_ID = #{c_Id} 
+    </update>
+    
+    <!-- 추천 수 업데이트 -->
+    <update id="updateCLike" parameterType="hashmap">
+       UPDATE COOK SET
+       <if test="l_Ck == 'yes'">
+          C_LIKE = C_LIKE+1
+       </if>
+       <if test="l_Ck == 'no'">
+          C_LIKE = C_LIKE-1
+       </if>
+       WHERE C_ID = #{c_Id}    
+    </update>
+        
+    <!-- 레시피 수정  -->
+    <update id="updateCook" parameterType="Cook">
+       UPDATE COOK SET
+       C_PICTURE=#{c_Picture}, C_NAME=#{c_Name}, MAIN_INGREDIENT = #{main_Ingredient}, C_RECIPE = #{c_Recipe}
+       WHERE C_ID = #{c_Id}
+    </update>
+    
+    <!-- 레시피 삭제 -->
+    <delete id="deleteCook" parameterType="integer">
+    	DELETE COOK
+    	WHERE C_ID=#{c_Id}
+    </delete>
+    
+    <!-- 좋아요 삭제 -->
+    <delete id="deleteLike" parameterType="integer">
+    	DELETE LIKECHECK
+    	WHERE C_ID=#{c_Id}
+    </delete>
+    
+    <!-- ㅁㅁㅁㅁㅁㅁㅁㅁ -->
+    <!-- 인기메뉴 리스트 -->
+    <select id="cookLikeBest" resultType="Cook">
+       SELECT * FROM COOK
+       ORDER BY C_LIKE DESC
+    </select>
+    
+    <select id="myRecipeLikeBest" resultType="MyRecipeNotice">
+       SELECT * FROM MYRECIPE
+       ORDER BY N_GROK DESC
+    </select>
+    
+    <select id="storeLikeBest" resultType="StoreNotice">
+       SELECT * FROM CONVEINENCE_STORE
+       ORDER BY N_GROK DESC
+    </select>
+    
+ </mapper> 

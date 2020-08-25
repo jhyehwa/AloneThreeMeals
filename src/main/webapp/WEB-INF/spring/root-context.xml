@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- VO bean 등록 -->
+	<bean id="cook" class="com.alone.threemeals.member.vo.Cook"></bean>
+	<bean id="likeCheck" class="com.alone.threemeals.member.vo.Likecheck"></bean>
+	<bean id="myMember" class="com.alone.threemeals.member.vo.MyMember"></bean>
+	<bean id="refrigerator" class="com.alone.threemeals.member.vo.Refrigerator"></bean>
+	<bean id="storeNotice" class="com.alone.threemeals.notice.vo.StoreNotice"></bean>
+	<bean id="necessityNotice" class="com.alone.threemeals.notice.vo.NecessityNotice"></bean>
+	<bean id="myRoomNotice" class="com.alone.threemeals.notice.vo.MyRoomNotice"></bean>
+	<bean id="myRecipeNotice" class="com.alone.threemeals.notice.vo.MyRecipeNotice"></bean>
+	<bean id="anabadaNotice" class="com.alone.threemeals.notice.vo.AnabadaNotice"></bean>
+	<bean id="honeyTipNotice" class="com.alone.threemeals.notice.vo.HoneyTipNotice"></bean>
+
+	<bean id="storeNoticeComment" class="com.alone.threemeals.notice.vo.StoreNoticeComment"></bean>
+	<bean id="necessityNoticeComment" class="com.alone.threemeals.notice.vo.NecessityNoticeComment"></bean>
+	<bean id="myRoomNoticeComment" class="com.alone.threemeals.notice.vo.MyRoomNoticeComment"></bean>
+	<bean id="myRecipeNoticeComment" class="com.alone.threemeals.notice.vo.MyRecipeNoticeComment"></bean>
+	<bean id="anabadaNoticeComment" class="com.alone.threemeals.notice.vo.AnabadaNoticeComment"></bean>
+	<bean id="honeyTipNoticeComment" class="com.alone.threemeals.notice.vo.HoneyTipNoticeComment"></bean>
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<bean name="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	   	<property name="maxUploadSize" value="10000000" />
+	   	<property name="defaultEncoding" value="UTF-8" />
+   	</bean>
+   	<!-- Jdbc Template  -->
+   	<bean name="template" class="org.springframework.jdbc.core.JdbcTemplate" >
+   		<property name="dataSource" ref="dataSource" />
+   	</bean>
+   	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+   		<property name="dataSource" ref="dataSource"></property>
+   	</bean>
+   	
+   	<!-- db.properties : /WEB-INF/db.properties -->
+   	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+   		<property name="location">
+   			<value>/WEB-INF/db.properties</value>
+   		</property>
+   	</bean>
+   	
+   	<!-- data source bean -->
+   	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+   		<property name="driverClassName" value="${jdbc.driver}"></property>
+   		<property name="url" value="${jdbc.url}"></property>
+   		<property name="username" value="${jdbc.username}"></property>
+   		<property name="password" value="${jdbc.userpwd}"></property>
+   	</bean>
+   	
+   	<!-- SqlSessionFactory 등등 -->
+   	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+   		<property name="dataSource" ref="dataSource" />
+   		<property name="configLocation" value="classpath:com/alone/threemeals/mapper/mybatis-config.xml" />
+   	</bean>
+   	
+   	
+   	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+   		<constructor-arg index="0" ref="sqlSessionFactory"></constructor-arg> 
+   	</bean>
+</beans>
+

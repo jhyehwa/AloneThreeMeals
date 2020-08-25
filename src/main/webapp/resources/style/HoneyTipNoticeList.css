@@ -1,0 +1,491 @@
+@CHARSET "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	outline: none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0 auto;
+	overflow: auto;
+	background-image: url('../images/background.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-attachment: fixed;
+}
+
+#header #content #footer {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+}
+
+div#header {
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+	height: 80px;
+}
+
+#menu ul, #menu li, #menu span, #menu a {
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+#menu {
+	line-height: 1;
+	border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	background: #ffffff;
+	background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff),
+		color-stop(100%, #ffffff));
+	background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+	background: -o-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+	background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+	background: linear-gradient(to bottom, #ffffff 0%, #ffffff 100%);
+	border-bottom: 2px solid #db000b;
+	width: auto;
+}
+
+#menu:after, #menu ul:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+#menu a {
+	background: #ffffff;
+	background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff),
+		color-stop(100%, #ffffff));
+	background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+	background: -o-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+	background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+	background: linear-gradient(to bottom, #ffffff 0%, #ffffff 100%);
+	color: #ffffff;
+	display: block;
+	font-family: Helvetica, Arial, Verdana, sans-serif;
+	padding: 19px 20px;
+	text-decoration: none;
+}
+
+#menu ul {
+	list-style: none;
+}
+
+#menu>ul>li {
+	display: inline-block;
+	float: left;
+	margin: 0;
+}
+
+#menu.align-center {
+	text-align: center;
+}
+
+#menu.align-center>ul>li {
+	float: none;
+}
+
+#menu.align-center ul ul {
+	text-align: left;
+}
+
+#menu.align-right>ul {
+	float: right;
+}
+
+#menu.align-right ul ul {
+	text-align: right;
+}
+
+#menu>ul>li>a {
+	color: #000000;
+	font-size: 12px;
+}
+
+#menu>ul>li:hover:after {
+	content: '';
+	display: block;
+	width: 0;
+	height: 0;
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #db000b;
+	margin-left: -10px;
+}
+
+#menu>ul>li:first-child>a {
+	border-radius: 5px 0 0 0;
+	-moz-border-radius: 5px 0 0 0;
+	-webkit-border-radius: 5px 0 0 0;
+}
+
+#menu.align-right>ul>li:first-child>a, #menu.align-center>ul>li:first-child>a
+	{
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+}
+
+#menu.align-right>ul>li:last-child>a {
+	border-radius: 0 5px 0 0;
+	-moz-border-radius: 0 5px 0 0;
+	-webkit-border-radius: 0 5px 0 0;
+}
+
+#menu .sub {
+	z-index: 1;
+}
+
+#menu .sub:hover>ul {
+	display: block;
+}
+
+#menu .sub ul {
+	display: none;
+	position: absolute;
+	width: 150px;
+	top: 100%;
+	left: 0;
+}
+
+#menu.align-right .sub ul {
+	left: auto;
+	right: 0;
+}
+
+#menu .sub ul li {
+	*margin-bottom: -1px;
+}
+
+#menu .sub ul li a {
+	background: #db000b;
+	border-bottom: 1px dotted #ff0f1b;
+	font-size: 11px;
+	filter: none;
+	display: block;
+	line-height: 120%;
+	padding: 10px;
+}
+
+#menu .sub ul li:hover a {
+	background: #a80008;
+}
+
+#menu ul ul li:hover>a {
+	color: #ffffff;
+}
+
+#menu .sub .sub:hover>ul {
+	display: block;
+}
+
+#menu .sub .sub ul {
+	display: none;
+	position: absolute;
+	left: 100%;
+	top: 0;
+}
+
+#menu.align-right .sub .sub ul, #menu.align-right ul ul ul {
+	left: auto;
+	right: 100%;
+}
+
+#menu .sub .sub ul li a {
+	background: #a80008;
+	border-bottom: 1px dotted #ff0f1b;
+}
+
+#menu .sub .sub ul li a:hover {
+	background: #8f0007;
+}
+
+#menu ul ul li.last>a, #menu ul ul li:last-child>a, #menu ul ul ul li.last>a,
+	#menu ul ul ul li:last-child>a, #menu .sub ul li:last-child>a, #menu .sub ul li.last>a
+	{
+	border-bottom: 0;
+}
+
+#menu #login_box {
+	float: right;
+}
+
+#menu #login_box:HOVER:AFTER {
+	content: '';
+	display: block;
+	width: 0;
+	height: 0;
+	position: absolute;
+	right: 50%;
+	bottom: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #db000b;
+	margin-left: -10px;
+}
+
+#menu .sub:hover {
+	display: block;
+}
+
+#menu #login_box ul {
+	width: 0;
+}
+
+#menu #login_box ul>li.sub {
+	position: absolute;
+	width: 200px;
+	top: 100%;
+	left: -130px;
+}
+
+#menu #login_box:HOVER:AFTER {
+	content: '';
+	display: block;
+	width: 0;
+	height: 0;
+	position: absolute;
+	right: 50%;
+	bottom: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #db000b;
+	margin-left: -10px;
+}
+
+#menu .sub:hover {
+	display: block;
+}
+
+#menu #login_box ul {
+	width: 0;
+}
+
+#menu #login_box ul>li.sub {
+	position: absolute;
+	width: 200px;
+	top: 100%;
+	left: -130px;
+}
+
+div#login {
+	height: 30px;
+	text-align: center;
+	margin-top: 15px;
+	font-family: MD개성체;
+}
+
+div.input_box>input {
+	width: 196px;
+	height: 30px;
+}
+
+div.login_btn input {
+	border: none;
+	font-family: MD개성체;
+	font-size: 12pt;
+	color: white;
+	background-color: rgba(237, 28, 36, 0.6);
+	width: 200px;
+	height: 30px;
+}
+
+div.place {
+	margin-left: 50px;
+	margin-top: 100px;
+}
+
+div.content {
+	float: right;
+	margin-right: 430px;
+	margin-top: -385px;
+}
+
+div.content>select {
+	border: 1px outset #AC3030;
+	height: 25px;
+}
+
+span.text>input {
+	border: 1px outset #AC3030;
+	height: 23px;
+}
+
+span.btn>input {
+	border: 1px dotted #AC3030;
+	font-family: MD개성체;
+	font-size: 12pt;
+	color: white;
+	background-color: #AC3030;
+	width: 50px;
+	height: 26px;
+}
+
+div.notice {
+	padding: 5px;
+	width: 820px;
+	height: 570px;
+	background-color: rgba(255, 255, 255, 0.4);
+	margin: 0 auto;
+	margin-top: -345px;
+}
+
+div.notice>ul {
+	margin-top: 20px;
+	margin-left: 30px;
+	position: relative;
+	float: left;
+}
+
+div.notice>ul>li {
+	list-style-type: none;
+}
+
+#regnotice {
+	position: absolute;
+	font-family: MD개성체;
+	font-size: 12pt;
+	color: white;
+	background-color: #AC3030;
+	width: 100px;
+	height: 30px;
+	margin-top: 10px;
+	margin-left: 1150px;
+}
+
+ul.notice_title {
+	clear: both;
+}
+
+li.seq {
+	float: left;
+	width: 100px;
+	text-align: center;
+	background-color: #FFCC7F;
+	font-weight: bold;
+	padding: 5px;
+}
+
+li.title {
+	float: left;
+	width: 200px;
+	text-align: center;
+	background-color: #FFCC7F;
+	font-weight: bold;
+	padding: 5px;
+}
+
+li.writer {
+	float: left;
+	width: 150px;
+	text-align: center;
+	background-color: #FFCC7F;
+	font-weight: bold;
+	padding: 5px;
+}
+
+li.regdate {
+	float: left;
+	width: 200px;
+	text-align: center;
+	font-weight: bold;
+	padding: 5px;
+	background-color: #FFCC7F;
+}
+
+li.hit {
+	float: left;
+	width: 100px;
+	text-align: center;
+	background-color: #FFCC7F;
+	font-weight: bold;
+	padding: 5px;
+}
+
+ul.content {
+	clear: both;
+}
+
+li.n_Seq {
+	float: left;
+	width: 100px;
+	text-align: center;
+}
+
+li.n_Title {
+	float: left;
+	width: 200px;
+	text-align: center;
+}
+
+li.n_Writer {
+	float: left;
+	width: 150px;
+	text-align: center;
+}
+
+li.n_Regdate {
+	float: left;
+	width: 200px;
+	text-align: center;
+}
+
+li.n_Hit {
+	float: left;
+	width: 100px;
+	text-align: center;
+}
+
+li.n_Title a {
+	text-decoration: none;
+	color: black;
+}
+
+#regnotice {
+	position: absolute;
+	font-family: MD개성체;
+	font-size: 12pt;
+	color: white;
+	background-color: #AC3030;
+	width: 100px;
+	height: 30px;
+	margin-top: 10px;
+	margin-left: 1150px;
+}
+
+div#paging {
+	margin: 0 auto;
+	width: 100%;
+	text-align: center;
+	margin-top: 50px;
+}
+
+div#paging a {
+	text-decoration: none;
+	color: black;
+}
+
+div#footer {
+   width: 100%;
+   height: 20px;
+   margin: 0 auto;
+   text-align: center;
+   font-family: MD이솝체;
+   margin-top: 90px;
+}
