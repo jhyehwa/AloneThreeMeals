@@ -24,8 +24,7 @@
 
 ## 사용기술<br/>
 ### FE<br/>
-1. HTML5, CSS3, JS Legacy (IE 호환)
-2. jQuery (DOM 관리, Ajax 작업 with Promise)<br/>
+1. HTML5, CSS3
 
 ### BE<br/>
 1. Spring
