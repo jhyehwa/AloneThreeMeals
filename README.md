@@ -1,8 +1,8 @@
 # 🍚 나혼자3끼<br/>
 ### 1인가구가 급증하는 추세<br/>
 ### 1인 가구의 특성상 식 재료를 사서 냉장고에 넣어 놓을 경우<br/>
-### ▶ 식 재료를 이용해 음식을 조리할 수 있는 레시피를 서로 공유<br/>
-### ▶ 자취생들의 애로사항이나 정보등을 공유<br/>
+### → 식 재료를 이용해 음식을 조리할 수 있는 레시피를 서로 공유<br/>
+### → 자취생들의 애로사항이나 정보등을 공유<br/>
 
 ## 데모
 ![메인](https://user-images.githubusercontent.com/62512658/91210809-be06ce00-e748-11ea-93cd-e40579480584.png)<br/><br/>
@@ -16,28 +16,24 @@
 2. 사용 기술
 
 ## 특징<br/>
-- MVC 패턴에 기반한 웹 어플리케이션 개발 
-- DI (Dependency Injection) 패턴을 적용하여 불필요한 의존관계 해소 
-- annotation 사용으로 설정 파일을 간결화, view 페이지와 객체 또는 메소드의 맵핑을 명확하게 함
-- Transaction 처리로 데이터의 무결성 보장
-- AOP를 이용한 로그처리
-- 인증(Authentication)과 권한(Authorization)등의 보안 처리
-- 패스워드 암호화 처리<br/>
+- 냉장고를 등록 할 수 있는 것이 강점</br>
+- 회원 가입을 해야지만 냉장고를 등록 할 수 있음</br>
+- 한 아이디 당 하나의 냉장고를 가질 수 있음</br>
+- 재료들을 선택하여 등록하기 버튼을 누르면 냉장고에 등록</br>
+- 냉장고에서 재료를 선택 후 검색을 하면 선택한 재료가 포함된 레시피들이 전부 나옴</br>
 
 ## 사용기술<br/>
 ### FE<br/>
 1. HTML5, CSS3, JS Legacy (IE 호환)
-2. jQuery (DOM 관리, Ajax 작업 with Promise)
-3. Tiles 3<br/>
+2. jQuery (DOM 관리, Ajax 작업 with Promise)</br>
 
 ### BE<br/>
-1. Spring 4.3.27
-2. Mybatis 3
+1. Spring
+2. Mybatis
 3. Oracle 11g
 4. Java<br/>
 
 ### Others<br/>
-1. Gsssit & Github
-2. starUMLstars (DB 모델링)
-3. Sql Developer (powered by Oracle)
-4. STS
+1. starUML (DB 모델링)
+2. Sql Developer (powered by Oracle)
+3. STS
