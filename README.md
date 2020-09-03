@@ -9,8 +9,13 @@
 ![메인](https://user-images.githubusercontent.com/62512658/91210809-be06ce00-e748-11ea-93cd-e40579480584.png)<br/>
 
     -   본인의 냉장고 등록/보기
-    -   오늘 뭐 먹지 → 레시피     -       -       -   
-![재료](https://user-images.githubusercontent.com/62512658/91212302-fa3b2e00-e74a-11ea-9242-e5ba285d3ed7.png)<br/><br/>
+    -   오늘 뭐 먹지 → 레시피
+    -   인기 메뉴 보기
+
+### [재료 선택]
+![재료](https://user-images.githubusercontent.com/62512658/91212302-fa3b2e00-e74a-11ea-9242-e5ba285d3ed7.png)<br/>
+
+    -   본인의 냉장고에 담을 재료를 선택 후 등록하기     -   
 ![냉장고](https://user-images.githubusercontent.com/62512658/91210843-c65f0900-e748-11ea-9b1a-b5f21c878b70.png)<br/><br/>
 ![요리](https://user-images.githubusercontent.com/62512658/91212329-045d2c80-e74b-11ea-9e2a-8ef59216a84c.png)<br/><br/>
 ![TOP3](https://user-images.githubusercontent.com/62512658/91210855-c9f29000-e748-11ea-9c40-8ac80e04a11c.png)<br/><br/>
