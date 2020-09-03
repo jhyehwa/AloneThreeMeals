@@ -15,10 +15,24 @@
 ### [재료 선택]
 ![재료](https://user-images.githubusercontent.com/62512658/91212302-fa3b2e00-e74a-11ea-9242-e5ba285d3ed7.png)<br/>
 
-    -   본인의 냉장고에 담을 재료를 선택 후 등록하기     -   
-![냉장고](https://user-images.githubusercontent.com/62512658/91210843-c65f0900-e748-11ea-9b1a-b5f21c878b70.png)<br/><br/>
-![요리](https://user-images.githubusercontent.com/62512658/91212329-045d2c80-e74b-11ea-9e2a-8ef59216a84c.png)<br/><br/>
-![TOP3](https://user-images.githubusercontent.com/62512658/91210855-c9f29000-e748-11ea-9c40-8ac80e04a11c.png)<br/><br/>
+    -   본인의 냉장고에 담을 재료를 선택
+    -   등록하기 버튼을 누르면 냉장고 속으로 재료가 슝~
+
+### [냉장고]
+![냉장고](https://user-images.githubusercontent.com/62512658/91210843-c65f0900-e748-11ea-9b1a-b5f21c878b70.png)<br/>
+
+    -   본인이 냉장고에 담은 재료를 볼 수 있음
+
+### [레시피 보기]
+![요리](https://user-images.githubusercontent.com/62512658/91212329-045d2c80-e74b-11ea-9e2a-8ef59216a84c.png)<br/>
+
+    -   본인의 냉장고에 있는 재료를 클릭
+    -   검색을 하면 해당하는 레시피 출력
+
+### [인기메뉴]
+![TOP3](https://user-images.githubusercontent.com/62512658/91210855-c9f29000-e748-11ea-9c40-8ac80e04a11c.png)<br/>
+
+    -   홈페이지를 사용하는 회원들의 인기 메뉴 선정
 
 ## 목차
 1. 특징
@@ -34,6 +48,7 @@
 ## 사용기술<br/>
 ### FE<br/>
 1. HTML5, CSS3
+2. 
 
 ### BE<br/>
 1. Spring
